@@ -43,7 +43,7 @@
           errorMessage: {
             text: 'Enter an Application Barcode Reference'if error,
             text: 'Check the Application Barcode Reference is correct'if nomatch
-          },
+          } if error or nomatch,
           label: {
             html: 'Enter the application&rsquo;s Application Barcode Reference (ABR)',
             classes: '',
