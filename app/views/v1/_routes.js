@@ -9,10 +9,10 @@ router.post('/find', (req, res) => {
   res.locals.application = application[0]
 
   if (search.length == 0) {
-    res.render('v1/find', {error:true})
+    res.render('v1/find', { error: 'Enter an Application Barcode Reference' })
   } else {
     if (application == false) {
-      res.render('v1/find', {nomatch:true})
+      res.render('v1/find', { error: 'Check the Application Barcode Reference is correct' })
     } else {
       res.render('v1/result')
     }

@@ -9,19 +9,7 @@
           titleText: 'There is a problem',
           errorList: [
             {
-              text: 'Enter an Application Barcode Reference',
-              href: '#find-error'
-            }
-          ]
-        }) }}
-      {% endif %}
-
-      {% if nomatch %}
-        {{ govukErrorSummary({
-          titleHtml: 'No match found for &lsquo;'+data['find']+'&rsquo;',
-          errorList: [
-            {
-              text: 'Check the Application Barcode Reference is correct',
+              text: error,
               href: '#find-error'
             }
           ]
@@ -41,9 +29,8 @@
           name: 'find',
           classes: 'govuk-input--width-20',
           errorMessage: {
-            text: 'Enter an Application Barcode Reference'if error,
-            text: 'Check the Application Barcode Reference is correct'if nomatch
-          } if error or nomatch,
+            text: error
+          } if error,
           label: {
             html: 'Enter the application&rsquo;s Application Barcode Reference (ABR)',
             classes: '',
