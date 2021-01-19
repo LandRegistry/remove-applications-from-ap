@@ -15,7 +15,7 @@ router.post('/find', (req, res) => {
   } else {
     if (application == false) {
       res.render('v1/find', {
-        error: 'Check the Application Barcode Reference is correct'
+        error: 'No match found, check the Application Barcode Reference is correct'
       })
     } else {
       res.render('v1/result')
