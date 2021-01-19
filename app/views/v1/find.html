@@ -41,11 +41,9 @@
           name: 'find',
           classes: 'govuk-input--width-20',
           errorMessage: {
-            text: 'Enter an Application Barcode Reference'
-          } if error,
-          errorMessage: {
-            text: 'Check the Application Barcode Reference is correct'
-          } if nomatch,
+            text: 'Enter an Application Barcode Reference'if error,
+            text: 'Check the Application Barcode Reference is correct'if nomatch
+          },
           label: {
             html: 'Enter the application&rsquo;s Application Barcode Reference (ABR)',
             classes: '',
