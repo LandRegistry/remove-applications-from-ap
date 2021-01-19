@@ -19,6 +19,15 @@ Example usage:
 
 module.exports = {
 
-  // Insert values here
+  "applications": [
+    {
+      "abr": "ABC123456",
+      "status": "available"
+    },
+    {
+      "abr": "654321CBA",
+      "status": "unavailable"
+    }
+  ]
 
 }

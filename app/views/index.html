@@ -1,43 +1,41 @@
-
 {% extends "layout.html" %}
-
-{% block pageTitle %}
-  GOV.UK Prototype Kit
-{% endblock %}
 
 {% block content %}
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-xl">
-        The GOV.UK Prototype Kit
-        <span class="govuk-caption-xl">{{releaseVersion}}</span>
-      </h1>{{releaseVersion | log }}
-      <p>
-        This kit lets you rapidly create HTML prototypes of GOV.UK services.
-      </p>
+      <h1 class="govuk-heading-l">
+        About
+        <span class="govuk-visually-hidden">{{ serviceName }}</span>
+      </h1>
+      <p>This is the prototype for a new tool, an interim solution allowing users of Application Processing (AP) to find and remove applications that have not been started yet.</p>
 
-      <p>
-        It contains all you need to prototype anything from simple static pages to complex, data-driven transactions.
-      </p>
+      <h2 class="govuk-heading-m">Version 1</h2>
 
-      <h2 class="govuk-heading-m">About this page</h2>
+      <p>Inital mockup based on conversations with AJ, Emily, and Warren.</p>
 
-      <p>We recommend you add links to your prototype to this page, rather than delete it.
-        You'll find this page in the kit at '/app/views/index.html'.</p>
-
-      <p>You can change the service name by editing the file '/app/config.js'.</p>
-
-      <h2 class="govuk-heading-m">Examples and documentation</h2>
-
+      <p class="govuk-!-margin-bottom-1">Allows users to:</p>
       <ul class="govuk-list govuk-list--bullet">
-        <li>
-          <a href="/docs/tutorials-and-examples">Example pages and documentation</a>
-        </li>
-        <li>
-          <a href="https://design-system.service.gov.uk">GOV.UK Design System</a>
-        </li>
+        <li>find an application by Application Barcode Reference (ABR)</li>
+        <li>view the status of the application</li>
+        <li>choose a location and team to assign to if the application has not been started</li>
       </ul>
+
+      <p class="govuk-!-margin-bottom-1">Find options in the prototype:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>ABC123456 is an application that can be removed</li>
+        <li>654321CBA is an application that cannot be removed</li>
+        <li>any other entry results in a no match error</li>
+        <li>blank shows an error message</li>
+      </ul>
+
+
+
+      {{ govukButton({
+        text: 'View prototype',
+        href: 'v1/find',
+        isStartButton: true
+      }) }}
     </div>
   </div>
 

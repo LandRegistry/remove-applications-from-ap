@@ -1,3 +1,6 @@
+// Override the govuk-frontend font stack
+$govuk-font-family: "Arial", sans-serif;
+
 // global styles for <a> and <p> tags
 $govuk-global-styles: true;
 
@@ -16,5 +19,22 @@ $govuk-assets-path: '/govuk/assets/';
 
 // Components that aren't in Frontend
 @import "components/cookie-banner";
+@import "components/timeline";
 
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
+
+
+
+// Adjust header for HMLR
+.govuk-header {
+  border-bottom: 10px solid #87C426;
+}
+
+.govuk-header__container {
+  border-bottom: 0;
+  margin-bottom: 0;
+}
+
+.govuk-header__logo {
+  width: 100%;
+}

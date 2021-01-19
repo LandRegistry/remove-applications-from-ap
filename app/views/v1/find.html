@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% if error %}
+        {{ govukErrorSummary({
+          titleText: 'There is a problem',
+          errorList: [
+            {
+              text: 'Enter an Application Barcode Reference',
+              href: '#find-error'
+            }
+          ]
+        }) }}
+      {% endif %}
+
+      {% if nomatch %}
+        {{ govukErrorSummary({
+          titleHtml: 'No match found for &lsquo;'+data['find']+'&rsquo;',
+          errorList: [
+            {
+              text: 'Check the Application Barcode Reference is correct',
+              href: '#find-error'
+            }
+          ]
+        }) }}
+      {% endif %}
+
+
+
+      <form method="post">
+
+        <h1 class='govuk-heading-l'>
+          Find an application
+        </h1>
+
+        {{ govukInput({
+          id: 'find',
+          name: 'find',
+          classes: 'govuk-input--width-20',
+          errorMessage: {
+            text: 'Enter an Application Barcode Reference'
+          } if error,
+          errorMessage: {
+            text: 'Check the Application Barcode Reference is correct'
+          } if nomatch,
+          label: {
+            html: 'Enter the application&rsquo;s Application Barcode Reference (ABR)',
+            classes: '',
+            isPageHeading: ''
+          },
+          hint: {
+            html: 'For example, &lsquo;ABC123456&rsquo;'
+          }
+        }) }}
+
+        {{ govukButton({
+          text: 'Find application'
+        }) }}
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

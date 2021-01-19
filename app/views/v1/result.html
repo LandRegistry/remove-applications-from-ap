@@ -1,0 +1,94 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: 'Back',
+    href: 'find'
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        <span class="govuk-caption-l">{{ application.abr }}</span>
+        Application details
+      </h1>
+
+      {# <h2 class="govuk-heading-m">
+        Application history
+      </h2>
+      <ol class="timeline">
+        <li class="timeline-event">
+          <h3 class="timeline-event-title">Data captured</h3>
+          <span class="timeline-event-meta">{{ today | date("subtract", 8, "days") | date("D MMMM YYYY") }}</span>
+        </li>
+      </ol> #}
+
+      {% if application.status == 'unavailable' %}
+        <p>The application is being processed by Chris Armstrong in Application Processing.</p>
+
+        {{ govukInsetText({
+          html: '<strong>Note:</strong> applications that are being processed cannot be removed.'
+        }) }}
+      {% elif application.status == 'available' %}
+        <form action="confirmation" method="post">
+
+          <p>The application data has been entered but has not been preprocessed.</p>
+          <p>The application has been preprocessed and is waiting for a caseworker to being processing it.</p>
+
+          <h2 class="govuk-heading-m">
+            Send application to Electronic Services (ESRV) queue
+          </h2>
+
+          {% from "govuk/components/select/macro.njk" import govukSelect %}
+
+          {{ govukSelect({
+            id: 'office',
+            name: 'office',
+            label: {
+              text: 'Select office'
+            },
+            items: [
+              {
+                value: 'Plymouth office',
+                text: 'Plymouth office'
+              },
+              {
+                value: 'Other office',
+                text: 'Other office'
+              }
+            ]
+          }) }}
+
+          {{ govukSelect({
+            id: 'team',
+            name: 'team',
+            label: {
+              text: 'Select team'
+            },
+            items: [
+              {
+                value: 'Workflow returns',
+                text: 'Workflow returns'
+              },
+              {
+                value: 'Other team',
+                text: 'Other team'
+              }
+            ]
+          }) }}
+
+          {{ govukButton({
+            text: 'Send to ESRV'
+          }) }}
+
+        </form>
+      {% else  %}
+        <p>Error.</p>
+      {% endif %}
+
+    </div>
+  </div>
+{% endblock %}
