@@ -27,6 +27,18 @@ module.exports = {
     {
       "abr": "654321CBA",
       "status": "unavailable"
+    },
+    {
+      "abr": "A123",
+      "status": "available"
+    },
+    {
+      "abr": "B123",
+      "status": "available"
+    },
+    {
+      "abr": "C123",
+      "status": "unavailable"
     }
   ]
 

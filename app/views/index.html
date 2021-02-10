@@ -4,38 +4,97 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-l">
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-1">
         About
         <span class="govuk-visually-hidden">{{ serviceName }}</span>
       </h1>
-      <p>This is the prototype for a new tool, an interim solution allowing users of Application Processing (AP) to find and remove applications that have not been started yet.</p>
+      <p class="govuk-hint">Prototype for a new tool (an interim solution) that allows users of Application Processing (AP) to find and remove applications that have not been started yet.</p>
 
-      <h2 class="govuk-heading-m">Version 1</h2>
-
-      <p>Inital mockup based on conversations with AJ, Emily, and Warren.</p>
-
-      <p class="govuk-!-margin-bottom-1">Allows users to:</p>
+      <h2 class="govuk-heading-m">Version 2</h2>
+      <p class="govuk-!-margin-bottom-1">Updated to:</p>
       <ul class="govuk-list govuk-list--bullet">
-        <li>find an application by Application Barcode Reference (ABR)</li>
-        <li>view the status of the application</li>
-        <li>choose a location and team to assign to if the application has not been started</li>
+        <li>remove the status from applications that can be removed</li>
+        <li>show a new completion page that does not confirm removal</li>
       </ul>
 
       <p class="govuk-!-margin-bottom-1">Find options in the prototype:</p>
       <ul class="govuk-list govuk-list--bullet">
-        <li>ABC123456 is an application that can be removed</li>
-        <li>654321CBA is an application that cannot be removed</li>
+        <li>A123 can be removed and shows a positive confirmation (this currently won&rsquo;t be developed)</li>
+        <li>B123 can be removed and does not tell the if it has been successful</li>
+        <li>C123 is an application that cannot be removed</li>
         <li>any other entry results in a no match error</li>
         <li>blank shows an error message</li>
       </ul>
 
-
-
       {{ govukButton({
         text: 'View prototype',
-        href: 'v1/find',
-        isStartButton: true
+        href: 'v2/find'
       }) }}
+
+
+
+
+
+      {% set v1 %}
+        <p>Inital mockup based on conversations with AJ, Emily, and Warren.</p>
+
+        <p class="govuk-!-margin-bottom-1">Allows users to:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>find an application by Application Barcode Reference (ABR)</li>
+          <li>view the status of the application</li>
+          <li>choose a location and team to assign to if the application has not been started</li>
+        </ul>
+
+        <p class="govuk-!-margin-bottom-1">Find options in the prototype:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>ABC123456 is an application that can be removed</li>
+          <li>654321CBA is an application that cannot be removed</li>
+          <li>any other entry results in a no match error</li>
+          <li>blank shows an error message</li>
+        </ul>
+
+        {{ govukButton({
+          text: 'View prototype',
+          href: 'v1/find'
+        }) }}
+      {% endset %}
+
+      {{ govukAccordion({
+        items: [
+          {
+            heading: { text: 'Version 1' },
+            content: { html: v1 }
+          }
+        ]
+      }) }}
+
+
+    </div>
+
+
+
+    <div class="govuk-grid-column-one-third">
+
+      <aside class="app-related-items govuk-!-margin-top-7" role="complementary">
+        <h2 class="govuk-heading-s" id="subsection-title">
+          Resources for design
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list govuk-!-font-size-16">
+            <li>
+              <a class="govuk-link--no-visited-state" rel="noreferrer noopener" target="_blank" href="https://remove-from-ap.herokuapp.com/">
+                Heroku app (opens in new tab)
+              </a>
+            </li>
+            <li>
+              <a class="govuk-link--no-visited-state" rel="noreferrer noopener" target="_blank" href="https://github.com/LandRegistry/remove-applications-from-ap">
+                GitHub repo (opens in new tab)
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
     </div>
   </div>
 
