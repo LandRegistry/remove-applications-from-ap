@@ -28,14 +28,12 @@
         <form action="submit" method="post">
 
           <h1 class="govuk-heading-l">
-            <span class="govuk-caption-l">{{ application.abr }}</span>
-            <span class="govuk-visually-hidden"> - </span>
-            Send to Electronic Services (ESRV)
+            Send {{ application.abr }} to Electronic Services (ESRV)
           </h1>
 
           {% call govukFieldset({
             legend: {
-              text: 'Select queue',
+              text: 'Where do you want to send the application?',
               classes: 'govuk-fieldset__legend--m'
             }
           }) %}

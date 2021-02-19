@@ -16,13 +16,13 @@
         }) }}
       {% endif %}
 
-
+      <p>Remove an application and send it to a specific team&rsquo;s Electronic Services (ESRV) queue.</p>
 
 
       <form method="post">
 
         <h1 class='govuk-heading-l'>
-          Find application
+          Select application to remove
         </h1>
 
         {{ govukInput({
@@ -34,12 +34,12 @@
             text: error
           } if error,
           label: {
-            html: 'Enter the application&rsquo;s Application Barcode Reference (ABR)',
-            classes: '',
+            html: 'What is the application&rsquo;s Application Barcode Reference (ABR)?',
+            classes: 'govuk-label--s',
             isPageHeading: ''
           },
           hint: {
-            html: 'For example, &lsquo;A123&rsquo;'
+            html: 'A123, for example'
           }
         }) }}
 

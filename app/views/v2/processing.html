@@ -5,11 +5,12 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">
-        Removal being processed
-      </h1>
+      {{ govukPanel({
+        titleText: 'Application removal processed',
+        html: data['find']+' will be moved to the '+data['team']+' team at the '+data['office']+'office.'
+      }) }}
 
-      <p>{{ data['find'] }} will be moved to the {{ data['team'] }} team in the {{ data['office'] }} but could take some time, check the queue and do not resubmit the request.</p>
+      <p>Usually this happens straight away. If the application does not appear in the correct queue within the hour, do not resubmit the removal request but raise a Marvel ticket instead.</p>
 
       <p class=" govuk-!-margin-top-9"><a href="find" class="govuk-link--no-visited-state">Find another application</p>
 
