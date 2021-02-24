@@ -15,7 +15,7 @@ router.post('/find', (req, res) => {
   } else {
     if (application == false) {
       res.render('v2/find', {
-        error: 'You have entered an invalid ABR or the application is not in Application Processing'
+        error: 'You have entered an invalid ABR or the application is not in Application Processing, check the current ESRV queue in General Enquiries'
       })
     } else {
       res.render('v2/result')
