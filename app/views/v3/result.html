@@ -1,0 +1,204 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: 'Back',
+    href: 'find'
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% if application.status == 'unavailable' %}
+        <h1 class="govuk-heading-l">
+          <span class="govuk-caption-l">{{ application.abr }}</span>
+          <span class="govuk-visually-hidden"> - </span>
+          Application cannot be removed
+        </h1>
+
+        <p>The application is being processed in Application Processing. To return this application create a PAS note against it using #D2 or #H7 &lsquo;Points Arising&rsquo;. Include details of who and where to send it to. Do not sign off the PAS note.</p>
+
+        <p class=" govuk-!-margin-top-9"><a href="find" class="govuk-link--no-visited-state">Find another application</p>
+
+
+
+      {% else %}
+        {% if errorOffice or errorTeam %}
+          {{ govukErrorSummary({
+            titleText: 'There is a problem',
+            errorList: [
+              {
+                text: errorOffice,
+                href: '#'+errorOffice
+              } if errorOffice,
+              {
+                text: errorTeam,
+                href: '#'+errorTeam
+              } if errorTeam
+            ]
+          }) }}
+        {% endif %}
+
+        <form action="submit" method="post">
+
+          <h1 class="govuk-heading-l">
+            Application {{ application.abr | d('A123') }} found in Application Processing
+          </h1>
+
+          {% call govukFieldset({
+            legend: {
+              text: 'Where do you want to send the application?',
+              classes: 'govuk-fieldset__legend--m'
+            }
+          }) %}
+
+          {{ govukSelect({
+            id: 'office',
+            name: 'office',
+            label: {
+              text: 'Office'
+            },
+            classes: 'govuk-!-width-two-thirds',
+            errorMessage: {
+              text: errorOffice
+            } if errorOffice,
+            items: [
+              {
+                value: 'Select office',
+                text: 'Select office',
+                selected: true
+              },
+              {
+                value: 'Birkenhead office',
+                text: 'Birkenhead office',
+                selected: checked('office','Birkenhead office')
+              },
+              {
+                value: 'Coventry office',
+                text: 'Coventry office',
+                selected: checked('office','Coventry office')
+              },
+              {
+                value: 'Croydon office',
+                text: 'Croydon office',
+                selected: checked('office','Croydon office')
+              },
+              {
+                value: 'Durham office',
+                text: 'Durham office',
+                selected: checked('office','Durham office')
+              },
+              {
+                value: 'Fylde office',
+                text: 'Fylde office',
+                selected: checked('office','Fylde office')
+              },
+              {
+                value: 'Gloucester office',
+                text: 'Gloucester office',
+                selected: checked('office','Gloucester office')
+              },
+              {
+                value: 'Kingston Upon Hull office',
+                text: 'Kingston Upon Hull office',
+                selected: checked('office','Kingston Upon Hull office')
+              },
+              {
+                value: 'Leicester office',
+                text: 'Leicester office',
+                selected: checked('office','Leicester office')
+              },
+              {
+                value: 'Nottingham office',
+                text: 'Nottingham office',
+                selected: checked('office','Nottingham office')
+              },
+              {
+                value: 'Peterborough office',
+                text: 'Peterborough office',
+                selected: checked('office','Peterborough office')
+              },
+              {
+                value: 'Plymouth office',
+                text: 'Plymouth office',
+                selected: checked('office','Plymouth office')
+              },
+              {
+                value: 'Swansea office',
+                text: 'Swansea office',
+                selected: checked('office','Swansea office')
+              },
+              {
+                value: 'Telford office',
+                text: 'Telford office',
+                selected: checked('office','Telford office')
+              },
+              {
+                value: 'Weymouth office',
+                text: 'Weymouth office',
+                selected: checked('office','Weymouth office')
+              },
+              {
+                value: 'Workflow returns',
+                text: 'Workflow returns',
+                selected: checked('office','Workflow returns')
+              }
+            ]
+          }) }}
+
+
+
+
+
+          {% set teamItems = [{value: 'Select team', text: 'Select team', selected: true}] %}
+          {% for i in range(1, 21) %}
+            {% set teamItems = teamItems | push ({
+              value: "Team name " + i,
+              text: "Team name " + i
+            }) %}
+          {% endfor %}
+
+
+          {{ govukSelect({
+            id: 'team',
+            name: 'team',
+            label: {
+              text: 'Team'
+            },
+            classes: 'govuk-!-width-two-thirds',
+            errorMessage: {
+              text: errorTeam
+            } if errorTeam,
+            items: teamItems
+          }) }}
+
+          {% endcall %}
+
+          {{ govukButton({
+            text: 'Send to ESRV'
+          }) }}
+
+        </form>
+
+      {% endif %}
+
+    </div>
+  </div>
+{% endblock %}
+
+{% block pageScripts %}
+  <script>
+  if ($('#office').val() == 'Select office') {
+    $('#team').parents('.govuk-form-group').hide()
+  }
+    $('#office').change(function() {
+      if ($('#office').val() != 'Select office') {
+        $('#team').parents('.govuk-form-group').show()
+      } else {
+        $('#team').parents('.govuk-form-group').hide()
+      }
+    });
+  </script>
+{% endblock %}

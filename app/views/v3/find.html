@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% set mainClasses = "govuk-main-wrapper--auto-spacing govuk-!-padding-top-4" %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% if error %}
+        {{ govukErrorSummary({
+          titleText: 'There is a problem',
+          errorList: [
+            {
+              text: error,
+              href: '#find-error'
+            }
+          ]
+        }) }}
+      {% endif %}
+
+      <p class="govuk-!-margin-bottom-6">Remove an application and send it to a specific team&rsquo;s Electronic Services (ESRV) queue.</p>
+
+
+      <form method="post">
+
+        <h1 class='govuk-heading-l'>
+          Select application to remove
+        </h1>
+
+        {{ govukInput({
+          id: 'find',
+          name: 'find',
+          classes: 'govuk-input--width-20',
+          value: data['find'],
+          errorMessage: {
+            text: error
+          } if error,
+          label: {
+            html: 'What is the application&rsquo;s Application Barcode Reference (ABR)?',
+            classes: 'govuk-label--s',
+            isPageHeading: ''
+          },
+          hint: {
+            html: 'A123BCD, for example'
+          }
+        }) }}
+
+        {{ govukButton({
+          text: 'Find application'
+        }) }}
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

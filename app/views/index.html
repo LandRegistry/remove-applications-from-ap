@@ -10,7 +10,7 @@
       </h1>
       <p class="govuk-hint">Prototype for a new tool (an interim solution) that allows users of Application Processing (AP) to find and remove applications that have not been started yet.</p>
 
-      <h2 class="govuk-heading-m">Version 2</h2>
+      <h2 class="govuk-heading-m">Version 3</h2>
       <p class="govuk-!-margin-bottom-1">Updated to:</p>
       <ul class="govuk-list govuk-list--bullet">
         <li>remove the status from applications that can be removed</li>
@@ -19,21 +19,41 @@
 
       <p class="govuk-!-margin-bottom-1">Find options in the prototype:</p>
       <ul class="govuk-list govuk-list--bullet">
-        <li>A123 can be removed and shows a positive confirmation (this currently won&rsquo;t be developed)</li>
-        <li>B123 can be removed and does not tell the if it has been successful</li>
-        <li>C123 is an application that cannot be removed</li>
+        <li>A123XYZ can be removed</li>
+        <li>B123XYZ cannot be removed</li>
         <li>any other entry results in a no match error</li>
         <li>blank shows an error message</li>
       </ul>
 
       {{ govukButton({
         text: 'View prototype',
-        href: 'v2/find'
+        href: 'v3/find'
       }) }}
 
 
 
 
+      {% set v2 %}
+        <p class="govuk-!-margin-bottom-1">Updated to:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>remove the status from applications that can be removed</li>
+          <li>show a new completion page that does not confirm removal</li>
+        </ul>
+
+        <p class="govuk-!-margin-bottom-1">Find options in the prototype:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>A123 can be removed and shows a positive confirmation (this currently won&rsquo;t be developed)</li>
+          <li>B123 can be removed and does not tell the if it has been successful</li>
+          <li>C123 is an application that cannot be removed</li>
+          <li>any other entry results in a no match error</li>
+          <li>blank shows an error message</li>
+        </ul>
+
+        {{ govukButton({
+          text: 'View prototype',
+          href: 'v2/find'
+        }) }}
+      {% endset %}
 
       {% set v1 %}
         <p>Inital mockup based on conversations with AJ, Emily, and Warren.</p>
@@ -61,6 +81,10 @@
 
       {{ govukAccordion({
         items: [
+          {
+            heading: { text: 'Version 2' },
+            content: { html: v2 }
+          },
           {
             heading: { text: 'Version 1' },
             content: { html: v1 }

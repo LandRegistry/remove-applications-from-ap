@@ -39,6 +39,14 @@ module.exports = {
     {
       "abr": "C123",
       "status": "unavailable"
+    },
+    {
+      "abr": "A123XYZ",
+      "status": "available"
+    },
+    {
+      "abr": "B123XYZ",
+      "status": "unavailable"
     }
   ]
 

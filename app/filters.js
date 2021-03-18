@@ -12,7 +12,10 @@ module.exports = function (env) {
 
 
 
-
+  filters.push = (array, item) => {
+    array.push(item)
+    return array
+  }
 
 
 
