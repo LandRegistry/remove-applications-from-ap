@@ -18,7 +18,7 @@
           Application cannot be removed
         </h1>
 
-        <p>The application is being processed in Application Processing. To return this application create a PAS note against it using #D2 or #H7 &lsquo;Points Arising&rsquo;. Include details of who and where to send it to. Do not sign off the PAS note.</p>
+        <p>The application is being processed in Application Processing. To return this application create a PAS note against it using #D2 or #H7. Include details of who and where to send it to. Do not sign off the PAS note.</p>
 
         <p class=" govuk-!-margin-top-9"><a href="find" class="govuk-link--no-visited-state">Find another application</p>
 
@@ -44,7 +44,7 @@
         <form action="submit" method="post">
 
           <h1 class="govuk-heading-l">
-            Application {{ application.abr | d('A123') }} found in Application Processing
+            Application {{ application.abr | d('A123') }} found
           </h1>
 
           {% call govukFieldset({
