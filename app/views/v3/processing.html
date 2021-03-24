@@ -7,7 +7,7 @@
 
       {{ govukPanel({
         titleText: 'Request submitted',
-        html: data['find']+' will be sent to the '+data['team']+' team at the '+data['office']+'.'
+        html: '<strong>'+data['find'] | upper+'</strong> will be sent to the '+data['team']+' team at the '+data['office']+'.'
       }) }}
 
       <p>If the application does not appear in the correct queue in an hour raise a Marval ticket. Do not resubmit the request.</p>

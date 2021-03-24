@@ -18,7 +18,7 @@
           Application cannot be removed
         </h1>
 
-        <p>The application is being processed in Application Processing. To return this application create a PAS note against it using #D2 or #H7. Include details of who and where to send it to. Do not sign off the PAS note.</p>
+        <p>Check General Enquiries for the application status.  If it is still in application processing then you will need to raise a PAS note.</p>
 
         <p class=" govuk-!-margin-top-9"><a href="find" class="govuk-link--no-visited-state">Find another application</p>
 
@@ -44,7 +44,7 @@
         <form action="submit" method="post">
 
           <h1 class="govuk-heading-l">
-            Application {{ application.abr | d('A123') }} found
+            Application {{ application.abr | upper | d('A123BCD') }} found
           </h1>
 
           {% call govukFieldset({
@@ -66,8 +66,8 @@
             } if errorOffice,
             items: [
               {
-                value: 'Select office',
-                text: 'Select office',
+                value: 'Select an office',
+                text: 'Select an office',
                 selected: true
               },
               {
@@ -152,7 +152,7 @@
 
 
 
-          {% set teamItems = [{value: 'Select team', text: 'Select team', selected: true}] %}
+          {% set teamItems = [{value: 'Select a team', text: 'Select a team', selected: true}] %}
           {% for i in range(1, 21) %}
             {% set teamItems = teamItems | push ({
               value: "Team name " + i,
