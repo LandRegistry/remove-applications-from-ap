@@ -6,7 +6,7 @@
 
       {% if error %}
         {{ govukErrorSummary({
-          titleText: 'There is a problem',
+          titleText: 'Application not found',
           errorList: [
             {
               text: error,
@@ -23,7 +23,7 @@
           Select application to remove
         </h1>
 
-        <p>Remove an application and send it to an Electronic Services (ESRV) queue.</p>
+        <!-- <p>Remove an application and send it to an Electronic Services (ESRV) queue.</p> -->
 
         {{ govukInput({
           id: 'find',
@@ -34,7 +34,7 @@
             text: error
           } if error,
           label: {
-            html: 'Enter the Application Barcode Reference (ABR)',
+            html: 'Application Barcode Reference (ABR)',
             classes: 'govuk-label--s',
             isPageHeading: ''
           },

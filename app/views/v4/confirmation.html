@@ -7,10 +7,10 @@
 
       {{ govukPanel({
         titleText: 'Request submitted',
-        html: '<strong>'+data['find'] | upper+'</strong> will be sent to the '+data['team']+' team at the '+data['office']+'.'
+        html: '<strong>'+data['find'] | upper+'</strong> will be sent to workflow'
       }) }}
 
-      <p>If the application does not appear in the correct queue in an hour raise a Marval ticket. Do not resubmit the request.</p>
+      <p>It may take up to an hour to appear in workflow.</p>
 
       <p class=" govuk-!-margin-top-9"><a href="find" class="govuk-link--no-visited-state">Find another application</p>
 

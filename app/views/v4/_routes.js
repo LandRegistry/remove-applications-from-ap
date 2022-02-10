@@ -8,6 +8,8 @@ router.post('/find', (req, res) => {
 
   res.locals.application = application[0]
 
+//  console.log('appn:'+application[0].status)
+
   if (search.length == 0) {
     res.render('v4/find', {
       error: 'Enter an Application Barcode Reference'
@@ -15,29 +17,26 @@ router.post('/find', (req, res) => {
   } else {
     if (application == false) {
       res.render('v4/find', {
-        error: 'You have entered an invalid ABR or the application is not in Application Processing, check the current ESRV queue in General Enquiries'
+        error: 'There is no application with this ABR in Application Processing'
       })
     } else {
-      res.render('v4/result')
+
+			if (application[0].status == 'available') {
+				res.redirect('can-remove')
+			}
+			else {
+				res.redirect('cant-remove')
+			}
     }
   }
 })
 
-router.post('/submit', (req, res) => {
-  const office = req.session.data['office']
-  const team = req.session.data['team']
+router.post('/can-remove', (req, res) => {
+  res.redirect('confirmation');
+})
 
-  if (office == 'Select office') {
-    res.render('v4/result', {
-      errorOffice: 'Select an office'
-    })
-  } else if (team == 'Select team') {
-    res.render('v4/result', {
-      errorTeam: 'Select a team'
-    })
-  } else {
-    res.redirect('processing');
-  }
+router.post('/cant-remove', (req, res) => {
+  res.redirect('find');
 })
 
 
