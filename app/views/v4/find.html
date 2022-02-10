@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% if error %}
+        {{ govukErrorSummary({
+          titleText: 'Application not found',
+          errorList: [
+            {
+              text: error,
+              href: '#find-error'
+            }
+          ]
+        }) }}
+      {% endif %}
+
+
+      <form method="post">
+
+        <h1 class='govuk-heading-l'>
+          Find application to remove
+        </h1>
+
+        <!-- <p>Remove an application and send it to an Electronic Services (ESRV) queue.</p> -->
+
+        {{ govukInput({
+          id: 'find',
+          name: 'find',
+          classes: 'govuk-input--width-10',
+          value: data['find'],
+          errorMessage: {
+            text: error
+          } if error,
+          label: {
+            html: 'Application Barcode Reference (ABR)',
+            classes: 'govuk-label--s',
+            isPageHeading: ''
+          },
+          hint: {
+            html: 'For example, A123BCD'
+          }
+        }) }}
+
+        {{ govukButton({
+          text: 'Find application'
+        }) }}
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

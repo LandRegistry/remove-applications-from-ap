@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+      <form method="post">
+
+        <h1 class='govuk-heading-l'>
+          Application {{ data['find'] | upper }} found
+        </h1>
+
+        <p>This application is in progress, you cannot remove it.</p>
+
+				<p>Check General Enquiries for the application status.  If it is still in application processing then you will need to raise a PAS note against the ABR. Do not sign off a PAS note if you have raised one.</p>
+
+        <!-- <p class=" govuk-!-margin-top-9"><a href="find" class="govuk-link--no-visited-state">Find another application</a></p> -->
+
+
+<!-- post back to find - and clear data -->
+        {{ govukButton({
+          text: 'Find another application'
+        }) }}
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

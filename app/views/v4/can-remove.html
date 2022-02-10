@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+      <form method="post">
+
+        <h1 class='govuk-heading-l'>
+          Application {{ data['find'] | upper }} found
+        </h1>
+
+        <p>You can send this application to Workflow</p>
+
+
+        {{ govukButton({
+          text: 'Remove application'
+        }) }}
+
+        <p><a href="find">find a different application</a></p>
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

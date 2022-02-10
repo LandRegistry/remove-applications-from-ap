@@ -10,12 +10,11 @@
       </h1>
       <p class="govuk-hint">Prototype for a new tool (an interim solution) that allows users of Application Processing (AP) to find and remove applications that have not been started yet.</p>
 
-      <h2 class="govuk-heading-m">Version 3</h2>
-      <p class="govuk-!-margin-bottom-1">Updated to:</p>
+
+      <h2 class="govuk-heading-m">Version 4 - In progress</h2>
+      <p class="govuk-!-margin-bottom-1">Updating to:</p>
       <ul class="govuk-list govuk-list--bullet">
-        <li>remove the status from applications that can be removed</li>
-        <li>show a new completion page that does not confirm removal</li>
-        <li>show minor content changes</li>
+        <li>remove picking an office and e-serv queue</li>
       </ul>
 
       <p class="govuk-!-margin-bottom-1">Find options in the prototype:</p>
@@ -26,12 +25,47 @@
         <li>blank shows an error message</li>
       </ul>
 
+
+      <p class="govuk-!-margin-bottom-1">Pages in the tool:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="/v4/find">find - find an application by Application Barcde Reference (ABR)</a></li>
+        <li><a href="/v4/can-remove">can-remove - result page for we can remove from AP</a></li>
+        <li><a href="/v4/cant-remove">cant-remove - result page for we cannot remove from AP</a></li>
+        <li><a href="/v4/confirmation">confirmation - rconfrmation its been sent to workflow</a></li>
+        <li><a href="/v4/error">error - if there is a problem with the tool</a></li>
+      </ul>
+
       {{ govukButton({
         text: 'View prototype',
-        href: 'v3/find'
+        href: 'v4/find'
       }) }}
 
 
+
+      {% set v3 %}
+
+	      <h2 class="govuk-heading-m">Version 3</h2>
+	      <p class="govuk-!-margin-bottom-1">Updated to:</p>
+	      <ul class="govuk-list govuk-list--bullet">
+	        <li>remove the status from applications that can be removed</li>
+	        <li>show a new completion page that does not confirm removal</li>
+	        <li>show minor content changes</li>
+	      </ul>
+
+	      <p class="govuk-!-margin-bottom-1">Find options in the prototype:</p>
+	      <ul class="govuk-list govuk-list--bullet">
+	        <li>A123XYZ can be removed</li>
+	        <li>B123XYZ cannot be removed</li>
+	        <li>any other entry results in a no match error</li>
+	        <li>blank shows an error message</li>
+	      </ul>
+
+	      {{ govukButton({
+	        text: 'View prototype',
+	        href: 'v3/find'
+	      }) }}
+
+      {% endset %}
 
 
       {% set v2 %}
@@ -82,6 +116,10 @@
 
       {{ govukAccordion({
         items: [
+        	{
+            heading: { text: 'Version 3' },
+            content: { html: v3 }
+          },
           {
             heading: { text: 'Version 2' },
             content: { html: v2 }
