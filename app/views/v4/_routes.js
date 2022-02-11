@@ -39,6 +39,10 @@ router.post('/cant-remove', (req, res) => {
   res.redirect('find');
 })
 
+router.get('/start-again', (req, res) => {
+	req.session.data['find'] = "";
+  res.redirect('find');
+})
 
 
 
