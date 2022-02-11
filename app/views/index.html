@@ -25,7 +25,7 @@
         <li>what queue does it go to in workflow... could we be clearer than just saying - the application will appear in workflow</li>
         <li>what should caseworkers do if the application can't be removed - as it's in progress</li>
         <li>are there other pages/content in the production version that don't appear in this prototype, that we need to address?  we noticed some differences between screenshots sent by email, and this prototype</li>
-        <li>are caseworkers kicking the application out of AP and expecting to then process it themselves in workflow/cora?  What do we know about current user behavior using the tool?</li>
+        <li>are caseworkers kicking the application out of AP and expecting to then process it themselves in workflow/cora?  What do we know about current user behaviour using the tool?</li>
       </ul>
 
       <h3 class="govuk-heading-m">example data to use in the <a href="/v4/find">find application</a> page</h3>
@@ -39,10 +39,16 @@
 
       <h3 class="govuk-heading-m">All the pages in the tool:</h3>
       <ul class="govuk-list govuk-list--bullet">
-        <li><a href="/v4/find">find - find an application by Application Barcode Reference (ABR)</a></li>
-        <li><a href="/v4/can-remove">can-remove - result page for we can remove from AP</a></li>
-        <li><a href="/v4/cant-remove">cant-remove - result page for we cannot remove from AP</a> - as it has been started</li>
-        <li><a href="/v4/confirmation">confirmation - confirmation its been sent to workflow</a></li>
+        <li><a href="/v4/find">find - find an application by Application Barcode Reference (ABR)</a>
+        	<p class="govuk-!-margin-top-3 govuk-!-margin-bottom-2">error messages:</p>
+        	<ul class="govuk-list govuk-list--bullet">
+        		<li><a href="/v4/find?find=%20">no ABR provided</a> - use blank</li>
+        		<li><a href="/v4/find?find=noABRinAP">no application with this ABR in AP</a> - use a random value</li>
+        	</ul>
+        </li>
+        <li><a href="/v4/can-remove?find=A123">can-remove - result page for we can remove from AP</a></li>
+        <li><a href="/v4/cant-remove?find=B123">cant-remove - result page for we cannot remove from AP</a> - is in progress</li>
+        <li><a href="/v4/confirmation?find=A123">confirmation - confirmation its been sent to workflow</a></li>
         <li><a href="/v4/error">error - if there is a problem with the tool</a></li>
       </ul>
 
