@@ -11,7 +11,7 @@
           Application {{ data['find'] | upper }} found
         </h1>
 
-        <p>This application is in progress, you cannot remove it.</p>
+        <p class="govuk-body-l">You cannot remove this application, it is in progress.</p>
 
 				<p>To stop the application you want to remove being marked off raise a PAS note against it. Do not sign off the PAS note."</p>
 
@@ -20,7 +20,8 @@
 
 <!-- post back to find - and clear data -->
         {{ govukButton({
-          text: 'Find another application'
+          text: 'Find another application',
+          classes : 'govuk-!-margin-top-9'
         }) }}
 
       </form>
