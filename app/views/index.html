@@ -21,14 +21,21 @@
 
 			<h4 class="govuk-heading-s">Questions - to finish off the design</h4>
       <ul class="govuk-list govuk-list--bullet">
-        <li>how quickly does the application appear in workflow</li>
+        <li>how quickly does the application appear in workflow (a few minutes)</li>
         <li>what queue does it go to in workflow... could we be clearer than just saying - the application will appear in workflow</li>
-        <li>what should caseworkers do if the application can't be removed - as it's in progress</li>
-        <li>are there other pages/content in the production version that don't appear in this prototype, that we need to address?  we noticed some differences between screenshots sent by email, and this prototype</li>
-        <li>are caseworkers kicking the application out of AP and expecting to then process it themselves in workflow/cora?  What do we know about current user behaviour using the tool?</li>
+        <li>what should caseworkers do if the application can't be removed - as it's in progress (create a stand-alone PAS note to stop an application being marked off/completed)</li>
+        <li>are there other pages/content in the production version that don't appear in this prototype, that we need to address?  we noticed some differences between screenshots sent by email, and this prototype (we don't think so)</li>
+        <li>are caseworkers kicking the application out of AP and expecting to then process it themselves in workflow/cora?  What do we know about current user behaviour using the tool?  (workflow has a search ABR function so people can find the application immediately)</li>
       </ul>
 
-      <h3 class="govuk-heading-m">example data to use in the <a href="/v4/find">find application</a> page</h3>
+
+
+      {{ govukButton({
+        text: 'View prototype',
+        href: 'v4/find'
+      }) }}
+
+      <h3 class="govuk-heading-m">example data to use</h3>
       <ul class="govuk-list govuk-list--bullet">
         <li>A123XYZ can be removed</li>
         <li>B123XYZ cannot be removed</li>
@@ -37,7 +44,7 @@
       </ul>
 
 
-      <h3 class="govuk-heading-m">All the pages in the tool:</h3>
+      <h3 class="govuk-heading-s">All the pages in the tool:</h3>
       <ul class="govuk-list govuk-list--bullet">
         <li><a href="/v4/find">find - find an application by Application Barcode Reference (ABR)</a>
         	<p class="govuk-!-margin-top-3 govuk-!-margin-bottom-2">error messages:</p>
@@ -52,10 +59,7 @@
         <li><a href="/v4/error">error - if there is a problem with the tool</a></li>
       </ul>
 
-      {{ govukButton({
-        text: 'View prototype',
-        href: 'v4/find'
-      }) }}
+
 
 
 
@@ -129,7 +133,11 @@
           text: 'View prototype',
           href: 'v1/find'
         }) }}
+
       {% endset %}
+
+
+      <h2 class="govuk-heading-l">Previous versions</h2>
 
       {{ govukAccordion({
         items: [
