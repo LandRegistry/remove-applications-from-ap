@@ -8,20 +8,18 @@
         About
         <span class="govuk-visually-hidden">{{ serviceName }}</span>
       </h1>
-      <p class="govuk-hint">Prototype for a tool that allows users of Application Processing (AP) to find and remove applications that have not been started yet.</p>
+      <p class="govuk-hint">Prototype for a tool that allows users of Application Processing (AP) to find and remove applications that have not been started.</p>
 
 
       <h2 class="govuk-heading-l">Version 4 - design complete</h2>
 
-      <p class="govuk-body-l">Design complete? We think so, playback/discuss with team.</p>
-
-      <p>Design by Andy Porter, Mo Rowlands</p>
+      <p>Design by Andy Porter, Mo Rowlands, Feb 2022</p>
   
     	<h3 class="govuk-heading-m">Updated to:</h3>
       <ul class="govuk-list govuk-list--bullet">
         <li>remove picking an office and e-serv queue</li>
         <li>inform users more clearly whats happening, now the office and queue choices have gone</li>
-        <li>making the content clearer, in general (initially this was needed quickly and as an interim tool, but will be around for at least another year)</li>
+        <li>making the content clearer, in general (initially this tool was needed quickly and for an interim period, but will be around for at least another year)</li>
       </ul>
 
       {{ govukButton({
@@ -48,7 +46,7 @@
         	</ul>
         </li>
         <li><a href="/v4/can-remove?find=A123">can-remove - result page for we can remove from AP</a></li>
-        <li><a href="/v4/cant-remove?find=C123">cant-remove - result page for we cannot remove from AP</a> - is in progress</li>
+        <li><a href="/v4/cant-remove?find=C123">cant-remove - result page for we cannot application remove from AP</a> - as it is in progress</li>
         <li><a href="/v4/confirmation?find=A123">confirmation - confirmation its been sent to workflow</a></li>
         <li><a href="/v4/error">error - if there is a problem with the tool</a></li>
       </ul>
@@ -72,6 +70,8 @@
         	<br>Answer: there's been no research with people using the tool.  We've learnt Workflow has a search ABR function so people can find the application immediately after removing it
         </li>
       </ul>
+
+      <p><a href="https://hmlandregistry.atlassian.net/browse/OM-888">Jira ticket for work to implement v4 design</a></p>
 
 
 
